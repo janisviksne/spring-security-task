@@ -1,4 +1,4 @@
-# Spring Security Demo
+# Spring Security Task
 
 Spring Boot REST API secured with Spring Security.
 
