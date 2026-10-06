@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Items</title>
+</head>
+<body>
+<h1>Items</h1>
+
+<p>This page is intentionally available before the security task is completed.</p>
+
+<ul>
+    <li th:each="item : ${items}">
+        <strong th:text="${item.name}">Item name</strong>
+        <span th:text="${item.description}">Description</span>
+        <form th:action="@{/items/{id}/delete(id=${item.id})}" method="post"
+              style="display:inline">
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>
+
+<h2>Add item</h2>
+<form th:action="@{/items}" th:object="${newItem}" method="post">
+    <label>
+        Name
+        <input type="text" th:field="*{name}" required>
+    </label>
+    <label>
+        Description
+        <input type="text" th:field="*{description}">
+    </label>
+    <button type="submit">Add</button>
+</form>
+</body>
+</html>
